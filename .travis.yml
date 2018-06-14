@@ -4,11 +4,12 @@ dotnet: 2.0.0
 
 script:
  - dotnet restore
- - dotnet pack src\\Config.LegacyConfig\\Config.LegacyConfig.csproj
- - dotnet nuget push src\\Config.LegacyConfig\\bin\\**\\*.nupkg -s https://api.nuget.org/v3/index.json -k $test-key
+ - dotnet pack src/Config.LegacyConfig/Config.LegacyConfig.csproj
+# TODO: RE-ENABLE PUSHING TO NUGET.ORG WHEN READY.
+# - dotnet nuget push src/Config.LegacyConfig/bin/**/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_KEY
 
 # safelist
-#branches:
-#  only:
-#  - master
-#  - develop
+branches:
+  only:
+  - master
+  - develop
