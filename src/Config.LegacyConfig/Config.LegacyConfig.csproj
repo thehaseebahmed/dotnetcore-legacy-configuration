@@ -10,6 +10,8 @@
     <Version>0.0.1</Version>
     <RepositoryType>git</RepositoryType>
     <Description>Legacy configuration (app.config, web.config) provider implementation for Microsoft.Extensions.Configuration.</Description>
+    <PackageProjectUrl>https://www.haseeb-ahmed.com/</PackageProjectUrl>
+    <PackageTags>dotnetcore,aspnetcore,appconfig,webconfig,config,configuration</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
