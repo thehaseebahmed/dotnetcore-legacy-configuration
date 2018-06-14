@@ -4,4 +4,11 @@ dotnet: 2.0.0
 
 script:
  - dotnet restore
- - dotnet build src\\Config.LegacyConfig\\Config.LegacyConfig.csproj
+ - dotnet pack src\\Config.LegacyConfig\\Config.LegacyConfig.csproj
+ - dotnet nuget push src\\Config.LegacyConfig\\bin\\**\\*.nupkg -s https://api.nuget.org/v3/index.json -k $test-key
+
+# safelist
+#branches:
+#  only:
+#  - master
+#  - develop
