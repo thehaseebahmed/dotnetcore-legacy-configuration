@@ -8,7 +8,7 @@ dist: trusty
 script: ./build.sh
 
 # safelist
-#branches:
-#  only:
-#  - master
-#  - develop
+branches:
+  only:
+  - master
+  - develop
