@@ -1,11 +1,10 @@
 language: csharp
 mono: none
 dotnet: 2.0.0
-
-script:build.sh
+script: ./build.sh
 
 # safelist
-branches:
-  only:
-  - master
-  - develop
+#branches:
+#  only:
+#  - master
+#  - develop
