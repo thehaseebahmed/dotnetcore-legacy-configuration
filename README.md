@@ -2,7 +2,7 @@
 
 # Legacy Configuration
 
-[![Build Status](https://travis-ci.org/haseebahmed7/dotnetcore-legacy-configuration.svg?branch=master)](https://travis-ci.org/haseebahmed7/dotnetcore-legacy-configuration)
+[![Build Status](https://travis-ci.com/haseebahmed7/dotnetcore-legacy-configuration.svg?branch=master)](https://travis-ci.com/haseebahmed7/dotnetcore-legacy-configuration)
 
 > Legacy configuration (app.config, web.config) provider implementation for Microsoft.Extensions.Configuration.
 
@@ -13,7 +13,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <connectionStrings>
-    
+<add name="AzureSqlDatabase" connectionString="[CONNECTION_STRING_HERE]" providerName="System.Data.SqlClient" />
   </connectionStrings>
   <appSettings>
     <add key="SampleAppSettingOne" value="Hello" />
@@ -21,12 +21,11 @@
   </appSettings>
 </configuration>
 ```
-<br/>
 
 ### Some.cs file
 ```csharp
 IConfiguration configuration = new ConfigurationBuilder()
-    .AddLegacyConfig()
+    .AddLegacyConfig("App.Config")
     .Build();
 
 Console.WriteLine($"App Settings: {configuration["SampleAppSettingOne"]}, {configuration["SampleAppSettingTwo"]}");
@@ -61,3 +60,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request.
+
+## Special Thanks
+
+- Ben Foster, this project is based on his [article](http://benfoster.io/blog/net-core-configuration-legacy-projects).
