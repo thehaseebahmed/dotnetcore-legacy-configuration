@@ -7,11 +7,13 @@
     <Authors>Haseeb Ahmed</Authors>
     <Company>N/A</Company>
     <RepositoryUrl>https://github.com/haseebahmed7/dotnetcore-legacy-configuration/</RepositoryUrl>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <RepositoryType>git</RepositoryType>
     <Description>Legacy configuration (app.config, web.config) provider implementation for Microsoft.Extensions.Configuration.</Description>
     <PackageProjectUrl>https://www.haseeb-ahmed.com/</PackageProjectUrl>
     <PackageTags>dotnetcore,aspnetcore,appconfig,webconfig,config,configuration</PackageTags>
+    <ApplicationIcon></ApplicationIcon>
+    <PackageIconUrl>https://www.haseeb-ahmed.com/wp-content/uploads/2018/06/favicon.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>

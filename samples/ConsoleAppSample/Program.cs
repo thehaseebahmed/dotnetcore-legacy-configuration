@@ -9,10 +9,14 @@ namespace ConsoleAppSample
         static void Main(string[] args)
         {
             IConfiguration configuration = new ConfigurationBuilder()
-                .AddLegacyConfig()
+                .AddLegacyConfig("App.Config")
+                .AddLegacyConfig("My.Config")
                 .Build();
 
-            Console.WriteLine($"App Settings: {configuration["SampleAppSettingOne"]}, {configuration["SampleAppSettingTwo"]}");
+            foreach (var keyValuePair in configuration.AsEnumerable())
+            {
+                Console.WriteLine($"{keyValuePair.Key} = {keyValuePair.Value}");
+            }
         }
     }
 }
