@@ -6,16 +6,32 @@ namespace HA.Extensions.Configuration.Legacy
 
     public class LegacyConfigurationProvider : ConfigurationProvider, IConfigurationSource
     {
+        private readonly Configuration _legacyConfiguration;
+
+        public LegacyConfigurationProvider(
+            string path
+            )
+        {
+            var fileMap = new ExeConfigurationFileMap { ExeConfigFilename = path };
+            _legacyConfiguration = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+        }
+
         public override void Load()
         {
-            foreach (ConnectionStringSettings connectionString in ConfigurationManager.ConnectionStrings)
+            foreach (ConnectionStringSettings connectionString in _legacyConfiguration.ConnectionStrings.ConnectionStrings)
             {
-                Data.Add($"ConnectionStrings:{connectionString.Name}", connectionString.ConnectionString);
+                Data.Add(
+                    $"ConnectionStrings:{connectionString.Name}",
+                    connectionString.ConnectionString
+                    );
             }
 
-            foreach (var settingKey in ConfigurationManager.AppSettings.AllKeys)
+            foreach (var settingKey in _legacyConfiguration.AppSettings.Settings.AllKeys)
             {
-                Data.Add(settingKey, ConfigurationManager.AppSettings[settingKey]);
+                Data.Add(
+                    $"AppSettings:{settingKey}",
+                    _legacyConfiguration.AppSettings.Settings[settingKey].Value
+                    );
             }
         }
 
